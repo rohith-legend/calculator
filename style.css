@@ -9,9 +9,48 @@ body {
 }
 
 #container {
-    height: 87vh;
-    width: 25vw;
+    height: 730px;
+    width: 450px;
     background-color: black;
     margin-top: 6vh;
-    border-radius: 8vh;
+    border-radius: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#display {
+    margin-top: 90px;
+    border: 2px solid white;
+    width: 410px;
+    height: 100px;
+}
+.main {
+    border: 2px solid white;
+    width: 410px;
+    height: 420px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.main button {
+    border-radius: 10rem;
+    padding: 2.0rem;
+    font-size: 26px;
+    margin: 5.0px;
+    background-color: grey;
+    font-weight: bold;
+    color: white;
+    border: none;
+}
+
+.main .digit {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+}
+.main .op button {
+    background-color: orange;
 }
