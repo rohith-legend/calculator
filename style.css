@@ -22,35 +22,52 @@ body {
 
 #display {
     margin-top: 90px;
+    display: flex;
     border: 2px solid white;
     width: 410px;
     height: 100px;
+    color: white;
+    font-size: 65px;
+    font-weight: bolder;
+    align-items: flex-end;
+    justify-content: end;
 }
 .main {
     border: 2px solid white;
     width: 410px;
     height: 420px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 
 }
 
 .main button {
+    margin: 3px;
     border-radius: 10rem;
     padding: 2.0rem;
     font-size: 26px;
-    margin: 5.0px;
     background-color: grey;
     font-weight: bold;
     color: white;
     border: none;
 }
 
-.main .digit {
+.main .digits {
     display: flex;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    margin-left: 20px;
+    border: 2px solid white;
+    gap: 4px;
 }
-.main .op button {
+
+.main .ops {
+    border: 2px white solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.main .ops button {
     background-color: orange;
+    padding: 1.6rem;
+    font-size: 22px;
 }
