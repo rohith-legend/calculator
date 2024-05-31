@@ -1,97 +1,75 @@
-function digit(button) {
-    if (!err && !n) {
-        display.textContent += button.textContent;
-        content = parseInt(display.textContent);
-    }
-    else if (err) {
-        display.textContent="";
-        display.textContent += button.textContent;
-        content = parseInt(display.textContent);
-        err = false;
-    }
-    else if (n) {
-        display.textContent="";
-        display.textContent += button.textContent;
-        content = parseInt(display.textContent);
-        n = false;
-    }
-    
-}
+function add(num1,num2) { return num1 +num2; }
+function multiply(num1,num2) {return num1*num2};
+function divide(num1,num2) { return num1/num2; }
+function subtract(num1,num2) { return num1-num2; }
 
-function operate(button) {
-    if (button.id== "add") {
-        if(content != null) {
-            if (variable == null) {
-                variable = content;
-                content = null;
-                mult = false;
-                add=true;
+function resultx(button) {
+        let val = parseFloat(display.textContent);
+        if (operator == "add") result = val + prevInp;
+        if (operator == "multiply") result = val * prevInp;
+        if (operator == "subtract") result = prevInp - val;
+        if (operator == "divide") {
+            if (val == 0) {
+                return "err";
+            }
+            else {
+                result = prevInp/val;
+            }
+        }
+}
+function changeDisplay(button) {
+    const classes = button.className.split(" ");
+    console.log(result);
+    if (classes.includes("digit")) {
+        if (!newx) display.textContent += button.textContent;
+        else {
+            display.textContent = "";
+            display.textContent += button.textContent;
+            newx = false;
+        }
+    }
+   else { 
+        if (button.id != "res") {
+            console.log(operator);
+            if (operator=="") {
+                operator = button.id;
+                prevInp = parseFloat(display.textContent);
                 display.textContent = "";
             }
             else {
-                add = true;
-                mult = false;
-                variable += content;
-                content = variable;
-                display.textContent = variable;
-                content = null;
-                n = true;
+                resultx(button);
+                operator = button.id;
+                prevInp = result;
+                result = Math.round((result*1000))/1000
+                display.textContent = result;
             }
         }
-    }
-    else if (button.id == "multiply") {
-        if (variable == null) {
-            variable = content;
-            content = null;
-            add = false;
-            mult=true;
-            display.textContent = "";
-        }
         else {
-            variable *= content;
-            content = variable;
-            display.textContent = variable;
-            content = null;
-            n = true;
-            add = false;
-            mult = true;
+            if (resultx(button)=="err") {
+                display.textContent = "Error";
+                newx = true;
+                prevInp = "";
+                operator = "";
+                return;
+            }
+            result = Math.round((result*1000))/1000
+            display.textContent = result;
+            console.log(prevInp,operator,result);
+            operator = "";
+            newx = true;
         }
-    }
-    else if (button.id == "res") {
-        if (add) {
-            variable += content;
-            content = variable;
-            display.textContent = content;
-            n = true;
-            variable = null;
-        }
-        if (mult) {
-            variable *= content;
-            content = variable;
-            display.textContent = content;
-            n = true;
-            variable = null;
-        }
-    }
-}
-function changeDisplay(event) {
-    const classes = event.target.className.split(' ');
-    if (classes.includes("digit")) digit(event.target);
-    else operate(event.target);
+   }
 }
 
 const but = document.getElementsByTagName("button");
 const display = document.getElementById("display");
 
-let n = true;
-let content = null;
-let variable = null;
-let result = null;
-let err = false;
-let add = false;
-let mult = false;
-
 for (let i=0;i<but.length;i++) {
     let element = but.item(i);
-    element.addEventListener("click",(event)=> { changeDisplay(event)} );
+    element.addEventListener("click",(event)=> { changeDisplay(event.target)} );
     }
+
+let operator = "";
+let prevInp = "";
+let result;
+let newx = false;

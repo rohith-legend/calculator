@@ -54,10 +54,13 @@ body {
 
 .main .digits {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    gap: 10px;
     flex-wrap: wrap;
-    border: 2px solid white;
-    gap: 4px;
+}
+.main .digits button {
+    margin: 0;
+    padding: 1.9rem;
 }
 
 .main .ops {
