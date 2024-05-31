@@ -30,7 +30,6 @@ function changeDisplay(button) {
     }
    else { 
         if (button.id != "res") {
-            console.log(operator);
             if (operator=="") {
                 operator = button.id;
                 prevInp = parseFloat(display.textContent);
@@ -40,8 +39,8 @@ function changeDisplay(button) {
                 resultx(button);
                 operator = button.id;
                 prevInp = result;
-                result = Math.round((result*1000))/1000
-                display.textContent = result;
+                result = Math.round((result*1000))/1000;
+                display.textContent = "";
             }
         }
         else {
@@ -53,9 +52,9 @@ function changeDisplay(button) {
                 return;
             }
             result = Math.round((result*1000))/1000
-            display.textContent = result;
             console.log(prevInp,operator,result);
             operator = "";
+            display.textContent = result;
             newx = true;
         }
    }
