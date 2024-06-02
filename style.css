@@ -24,6 +24,7 @@ body {
     margin-top: 90px;
     margin-bottom: 20px;
     margin-right: 20px;
+    margin-left: 20px;
     display: flex;
     width: 410px;
     height: 100px;
@@ -32,6 +33,7 @@ body {
     font-weight: bolder;
     align-items: flex-end;
     justify-content: end;
+    border: 2px solid white;
 }
 .main {
     width: 410px;
@@ -46,10 +48,11 @@ body {
     margin-left: 20px;
     border-radius: 50%;
     font-size: 26px;
-    background-color: grey;
+    background-color: #505050;
     font-weight: bold;
+    border-style: none;
+    cursor: pointer;
     color: white;
-    border: none;
 }
 
 .main .digits {
@@ -63,7 +66,10 @@ body {
     height: 90px;
     width: 90px;
 }
-
+button:active {
+    background-color: white;
+    color: black;
+}
 .main .ops {
     display: flex;
     flex-direction: column;

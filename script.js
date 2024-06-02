@@ -27,6 +27,14 @@ function changeDisplay(button) {
     }
    else { 
         if (button.id != "res") {
+            if (button.id == "clear") {
+                result = null;
+                prevInp = "";
+                operator = "";
+                display.textContent = "0";
+                newx = true;
+                return;
+            }
             if (operator=="") {
                 operator = button.id;
                 prevInp = parseFloat(display.textContent);
@@ -68,4 +76,4 @@ for (let i=0;i<but.length;i++) {
 let operator = "";
 let prevInp = "";
 let result;
-let newx = false;
+let newx = true;
